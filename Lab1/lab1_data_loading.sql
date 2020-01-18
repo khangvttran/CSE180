@@ -12,7 +12,7 @@ COPY Movies FROM stdin USING DELIMITERS '|';
 552345|Mastermind|2010|P|170|500.50
 666|A Beautiful Mind|1900|P|17|800.00
 777|Never Made|0000|P|0|0.00
-102|The Interview|2014|R|123|9554559.55
+102|The Interview|2014|R|123|95545.55
 \.
 
 
