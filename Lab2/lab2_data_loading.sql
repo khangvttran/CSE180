@@ -23,7 +23,6 @@ COPY Theaters FROM stdin USING DELIMITERS '|';
 222|324 Ghost Ave, Vegas, NV, 55864|2
 333|920 Pacific Ave, Santa Cruz, CA, 95069|6
 444|41st Ave, Capitola, CA, 95662|7
--- 555|420th Ave, Santa Cruz, CA, 95060|4
 \.
 
 
@@ -46,10 +45,6 @@ COPY TheaterSeats FROM stdin USING DELIMITERS '|';
 444|5|False
 444|6|True
 444|7|False
--- 555|1|False
--- 555|2|False
--- 555|3|False
--- 555|4|False
 \.
 
 
