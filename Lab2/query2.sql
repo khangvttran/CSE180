@@ -1,4 +1,4 @@
-SELECT DISTINCT m.name, m.year, c.name 
+SELECT DISTINCT m.name, m.year 
 FROM Movies m, Customers c, Tickets t, Showings s 
 WHERE c.name = 'Donald Duck' 
 AND c.customerID = t.customerID
