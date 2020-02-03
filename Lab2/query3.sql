@@ -6,4 +6,4 @@ WHERE m.length > (
     WHERE q.name = 'Avengers'
     AND year = 2011
 )
-ORDER BY m.length DESC, m.name ASC;
+ORDER BY m.year DESC, m.name ASC;
