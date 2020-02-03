@@ -9,4 +9,3 @@ AND t.startTime = s.startTime
 AND t.theaterID = s.theaterID
 GROUP BY c.customerID
 HAVING COUNT(DISTINCT m.movieID) >= 2
-ORDER BY c.customerID ASC;

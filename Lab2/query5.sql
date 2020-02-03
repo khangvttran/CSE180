@@ -1,6 +1,5 @@
 SELECT c.customerID AS "custID", c.name AS "custName", c.address AS "custAddress", 
-th.address AS "theaterAddress", th.numSeats AS "theaterSeats", 
-s.priceCode as "priceCode"
+th.address AS "theaterAddress", th.numSeats AS "theaterSeats", s.priceCode as "priceCode"
 FROM Tickets t 
 INNER JOIN Customers c ON t.customerID = c.customerID
 INNER JOIN Theaters th ON t.theaterID = th.theaterID
