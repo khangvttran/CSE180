@@ -2,3 +2,17 @@
 -- khvitran
 -- CSE180
 -- Lab3
+
+ALTER TABLE Tickets
+ADD FOREIGN KEY (theaterID, showingDate, startTime) REFERENCES Showings;
+
+ALTER TABLE Tickets
+ADD FOREIGN KEY (customerID) REFERENCES Customers
+    ON DELETE SET NULL
+    ON UPDATE CASCADE;
+
+ALTER TABLE Tickets
+ADD FOREIGN KEY (theaterID, seatNum) REFERENCES TheaterSeats
+    ON DELETE CASCADE
+    ON UPDATE CASCADE;
+    
