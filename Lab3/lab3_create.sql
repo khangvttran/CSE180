@@ -1,3 +1,8 @@
+-- Khang Tran
+-- khvitran
+-- CSE180
+-- Lab3
+
 DROP SCHEMA Lab3 CASCADE;
 CREATE SCHEMA Lab3;
 
