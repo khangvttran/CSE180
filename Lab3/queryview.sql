@@ -4,15 +4,15 @@
 -- Lab3
 -- queryview.sql
 
-SELECT m.rating, COUNT(*) AS "misreportCount"
-FROM "earningsView" e 
+SELECT m.rating, COUNT(*) AS misreportCount
+FROM earningsView e 
 JOIN Movies m ON e.movieID = m.movieID
-WHERE e."computedEarnings" != m.totalEarned 
+WHERE e.computedEarnings != m.totalEarned 
 GROUP BY m.rating
 HAVING EVERY (m.year < 2019);
 
 -- Output before deletion:
---  rating | misreportCount 
+--  rating | misreportcount 
 -- --------+----------------
 --  P      |              1
 --  G      |              2
@@ -30,15 +30,15 @@ AND seatNum = 5
 AND showingDate = '2020-06-24' 
 AND startTime = '15:00:00';
 
-SELECT m.rating, COUNT(*) AS "misreportCount"
-FROM "earningsView" e 
+SELECT m.rating, COUNT(*) AS misreportCount
+FROM earningsView e 
 JOIN Movies m ON e.movieID = m.movieID
-WHERE e."computedEarnings" != m.totalEarned 
+WHERE e.computedEarnings != m.totalEarned 
 GROUP BY m.rating
 HAVING EVERY (m.year < 2019);
 
 -- Output after deletion:
---  rating | misreportCount 
+--  rating | misreportcount 
 -- --------+----------------
 --  G      |              2
 -- (1 row)
