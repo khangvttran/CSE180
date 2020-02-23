@@ -2,6 +2,7 @@
 -- khvitran
 -- CSE180
 -- Lab3
+-- lab3_create.sql
 
 DROP SCHEMA Lab3 CASCADE;
 CREATE SCHEMA Lab3;

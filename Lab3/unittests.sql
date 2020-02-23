@@ -2,6 +2,7 @@
 -- khvitran
 -- CSE180
 -- Lab3
+-- unittests.sql
 
 -- For each of the 3 foreign key constraints:
 -- Write 1 INSERT command that violates the constraint (and illicits an error)

@@ -2,6 +2,7 @@
 -- khvitran
 -- CSE180
 -- Lab3
+-- combine.sql
 
 BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 

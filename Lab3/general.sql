@@ -2,6 +2,7 @@
 -- khvitran
 -- CSE180
 -- Lab3
+-- general.sql
 
 ALTER TABLE Tickets ADD CONSTRAINT positiveTicketPrice 
 CHECK (ticketPrice > 0);

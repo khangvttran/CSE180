@@ -2,6 +2,7 @@
 -- khvitran
 -- CSE180
 -- Lab3
+-- createview.sql
 
 CREATE VIEW earningsView AS
     SELECT m.movieID, SUM(ticketPrice) AS computedEarnings

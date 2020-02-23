@@ -2,6 +2,7 @@
 -- khvitran
 -- CSE180
 -- Lab3
+-- foreign.sql
 
 ALTER TABLE Tickets
 ADD FOREIGN KEY (theaterID, showingDate, startTime) REFERENCES Showings;
