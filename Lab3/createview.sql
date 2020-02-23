@@ -4,13 +4,10 @@
 -- Lab3
 -- createview.sql
 
-CREATE VIEW earningsView AS
-    SELECT m.movieID, SUM(ticketPrice) AS computedEarnings
-    -- CASE
-    --     WHEN ticketPrice IS NOT NULL
-    --     THEN ticketPrice
-    --     ELSE 0
-    -- END
+CREATE VIEW "earningsView" AS
+    SELECT m.movieID, CASE WHEN SUM(t.ticketPrice) IS NULL THEN 0 
+                            ELSE SUM(t.ticketPrice)
+                        END AS "computedEarnings" 
     FROM Movies m 
     LEFT JOIN Showings s ON m.movieID = s.movieID
     LEFT JOIN Tickets t ON s.theaterID = t.theaterID
