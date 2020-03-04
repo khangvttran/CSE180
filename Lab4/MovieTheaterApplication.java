@@ -41,8 +41,38 @@ public class MovieTheaterApplication {
         // your code here
 
         // Query to find the number of Showings where priceCode == thePriceCode
-        String showingsQuery = ""
+        String showingsQuery = "SELECT COUNT(*) \n" + 
+                               "FROM Showings s \n" +
+                               "WHERE s.priceCode = " + thePriceCode;
+        
+        // Check to see if the given price code is valid
+        if(!thePriceCode.equals("'A'") && !thePriceCode.equals("'B'") && !thePriceCode.equals("'C'")) 
+        {
+            System.out.println("Error: thePriceCode must be either 'A', 'B' or 'C'");
+            System.out.println("Current value: " + thePriceCode);
+            System.exit(-1);
+        }
 
+        // Run query
+        try 
+        {
+            Statement showingsQueryStatement = connection.createStatement();
+            ResultSet showingsCount = showingsQueryStatement.executeQuery(showingsQuery);
+
+            while(showingsCount.next()) 
+            {
+                result = ((Number) showingsCount.getObject(1)).intValue();
+            }
+
+            showingsQueryStatement.close();
+            showingsCount.close();
+        }
+
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            System.exit(-1);
+        }
 
         // end of your code
         return result;
@@ -60,9 +90,35 @@ public class MovieTheaterApplication {
     public int updateMovieName(int theMovieID, String newMovieName)
     {
         // your code here; return 0 appears for now to allow this skeleton to compile.
-        return 0;
+        
+        int updateCount = 0;
 
+        // Query to update movie names whose movieID == theMovieID to newMovieName
+        String updateMoviesQuery = "UPDATE Movies \n" +
+                                   "SET name = " + newMovieName + "\n" +
+                                   "WHERE movieID = " + theMovieID;
+        
+        try 
+        {
+            Statement updateStatement = connection.createStatement();
+            updateCount = updateStatement.executeUpdate(updateMoviesQuery);
 
+            updateStatement.close();
+        }
+
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            System.exit(-1);
+        }
+
+        if(updateCount < 0)
+        {
+            System.out.println("Error: number of updates should not be negative.");
+            System.exit(-1);
+        }
+        
+        return updateCount;
 
         // end of your code
     }

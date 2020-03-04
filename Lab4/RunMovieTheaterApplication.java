@@ -35,10 +35,56 @@ public class RunMovieTheaterApplication
              * The sample code in RunFilmsApplication.java should be useful.
              * That code tests other methods for a different database schema.
              * Your code below: */
-            
+			
+			 MovieTheaterApplication app = new MovieTheaterApplication(connection);
 
+			// -----------------------------------------------------------------------------------------
+			// Testing getShowingsCount
+			// Output when thePriceCode = 'B': 
+				/* 
+				Connected to the database!
+				Output of getShowingsCount when code = 'B' 
+				8
+				*/
 
-            
+			String code = "'B'";
+			System.out.println("Output of getShowingsCount when code = " + code);
+			int showingCount = app.getShowingsCount(code);
+			System.out.println(showingCount);
+
+			// -----------------------------------------------------------------------------------------
+			// Testing updateMovieName
+			// Output when theMovieID = 101 and newMovieName = 'Avatar 1':
+				/*
+				Output of updateMovieName when theMovieID = 101 and newMovieName = 'Avatar 1'
+				1
+				*/
+
+			int id1 = 101;
+			String newName1 = "'Avatar 1'";
+
+			System.out.println("Output of updateMovieName when theMovieID = " + id1 + 
+							   " and newMovieName = " + newName1);
+			int nameCount1 = app.updateMovieName(id1, newName1);
+			System.out.println(nameCount1);
+
+			// Output when theMovieID = 888 and newMovieName = 'Star Wars: A New Hope':
+			/*
+			 * Output of updateMovieName when theMovieID = 888 and newMovieName = 'Star Wars: A New Hope'
+			 * 0
+			 */
+
+			int id2 = 888;
+			String newName2 = "'Star Wars: A New Hope'";
+
+			System.out.println("Output of updateMovieName when theMovieID = " + id2 + " and newMovieName = " + newName2);
+			int nameCount2 = app.updateMovieName(id2, newName2);
+			System.out.println(nameCount2);
+
+			// -----------------------------------------------------------------------------------------
+			// Testing updateMovieName
+			
+
             /*******************
             * Your code ends here */
             
