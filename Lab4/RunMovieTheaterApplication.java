@@ -24,9 +24,9 @@ public class RunMovieTheaterApplication
             // You will need to fill in your real username (twice) and password for your
             // Postgres account in the arguments of the getConnection method below.
             connection = DriverManager.getConnection(
-                                                     "jdbc:postgresql://cse180-db.lt.ucsc.edu/username",
-                                                     "username",
-                                                     "password");
+                                                     "jdbc:postgresql://cse180-db.lt.ucsc.edu/khvitran",
+                                                     "khvitran",
+                                                     "thecowgoesmoo4.0");
             
             if (connection != null)
                 System.out.println("Connected to the database!");

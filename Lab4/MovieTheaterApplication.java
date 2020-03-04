@@ -35,11 +35,13 @@ public class MovieTheaterApplication {
      * A value of thePriceCode that’s not ‘A’, B’ or ‘C’ is an error.
      */
 
-    public List<Integer> getShowingsCount(int thePriceCode)
+    public Integer getShowingsCount(String thePriceCode) throws SQLException
     {
-        List<Integer> result = new ArrayList<Integer>();
+        Integer result = 0;
         // your code here
 
+        // Query to find the number of Showings where priceCode == thePriceCode
+        String showingsQuery = ""
 
 
         // end of your code
