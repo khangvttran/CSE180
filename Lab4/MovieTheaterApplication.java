@@ -150,6 +150,35 @@ public class MovieTheaterApplication {
 
         // your code here
 
+        // Query to reduce ticket prices
+        String reduceQuery = "SELECT reduceSomeTicketPricesFunction(?)";
+
+        try 
+        {
+            PreparedStatement reduceStatement = connection.prepareStatement(reduceQuery);
+            reduceStatement.setInt(1, maxTicketCount);
+            ResultSet result = reduceStatement.executeQuery();
+
+            if (result.next()) 
+            {
+                storedFunctionResult = result.getInt(1);
+            }
+
+            reduceStatement.close();
+            result.close();
+        }
+
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            System.exit(-1);
+        }
+
+        if(maxTicketCount <= 0)
+        {
+            System.out.println("Error: maxTicketCount must be a positive integer.");
+            System.exit(-1);
+        }
 
         // end of your code
         return storedFunctionResult;

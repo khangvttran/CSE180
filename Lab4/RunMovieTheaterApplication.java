@@ -78,13 +78,17 @@ public class RunMovieTheaterApplication
 			String newName2 = "'Star Wars: A New Hope'";
 			System.out.println("Output of updateMovieName when theMovieID is " + id2 + 
 								" and newMovieName is " + newName2);
-								
+
 			int nameCount2 = app.updateMovieName(id2, newName2);
 			System.out.println(nameCount2);
 
 			// -----------------------------------------------------------------------------------------
-			// Testing updateMovieName
+			// Testing reduceSomeTicketPrices
+			int countToUpdate = 15;
+			System.out.println("Output of reduceSomeTicketPrices when maxTicketCount is " + countToUpdate);
 			
+			int totalUpdates = app.reduceSomeTicketPrices(countToUpdate);
+			System.out.println(totalUpdates);
 
             /*******************
             * Your code ends here */
