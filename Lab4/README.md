@@ -6,9 +6,10 @@
 1. MovieTheaterApplication.java
 	* getShowingsCount()
 	* updateMovieName()
-	* reduceSomeTicketPrices() calles reduceSomeTicketPricesFunction.pgsql
+	* reduceSomeTicketPrices() calls reduceSomeTicketPricesFunction.pgsql
 1. reduceSomeTicketPricesFunction.pgsql
     * Stored Function
 1. createMovieTheaterViews.sql
     * Not required for the code to work properly.
     * Used to test answers.
+    * '\i createMovieTheaterViews.sql' creates view showTickets.

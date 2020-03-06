@@ -98,6 +98,7 @@ public class MovieTheaterApplication {
                                    "SET name = " + newMovieName + "\n" +
                                    "WHERE movieID = " + theMovieID;
         
+        // Run query
         try 
         {
             Statement updateStatement = connection.createStatement();
@@ -111,7 +112,8 @@ public class MovieTheaterApplication {
             e.printStackTrace();
             System.exit(-1);
         }
-
+        
+        // Error handling for invalid output
         if(updateCount < 0)
         {
             System.out.println("Error: number of updates should not be negative.");
@@ -153,6 +155,14 @@ public class MovieTheaterApplication {
         // Query to reduce ticket prices
         String reduceQuery = "SELECT reduceSomeTicketPricesFunction(?)";
 
+        // Error handling for invalid output
+        if (maxTicketCount <= 0) 
+        {
+            System.out.println("Error: maxTicketCount must be a positive integer.");
+            System.exit(-1);
+        }
+
+        // Run query
         try 
         {
             PreparedStatement reduceStatement = connection.prepareStatement(reduceQuery);
@@ -171,12 +181,6 @@ public class MovieTheaterApplication {
         catch (SQLException e) 
         {
             e.printStackTrace();
-            System.exit(-1);
-        }
-
-        if(maxTicketCount <= 0)
-        {
-            System.out.println("Error: maxTicketCount must be a positive integer.");
             System.exit(-1);
         }
 

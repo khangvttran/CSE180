@@ -1,3 +1,4 @@
+-- View for checking/comparing output
 CREATE VIEW showTickets AS
     SELECT s.theaterID, s.showingDate, s.startTime, s.priceCode, t.seatNum, t.customerID, t.ticketPrice AS tPrice
     FROM Showings s

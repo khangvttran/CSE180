@@ -1,6 +1,7 @@
 CREATE OR REPLACE FUNCTION reduceSomeTicketPricesFunction(maxTicketCount INTEGER)
     RETURNS INTEGER AS $$
 
+    -- Declare variables to update rows
     DECLARE
         code CHAR(1);
         seat INTEGER;
@@ -12,6 +13,7 @@ CREATE OR REPLACE FUNCTION reduceSomeTicketPricesFunction(maxTicketCount INTEGER
         totalUpdates INTEGER;
         loopCount INTEGER;
 
+    -- Declare cursor for loop
     DECLARE orderedTickets CURSOR FOR
         SELECT s.theaterID, s.showingDate, s.startTime, s.priceCode, t.seatNum, t.customerID, t.ticketPrice
         FROM Showings s
@@ -28,6 +30,7 @@ CREATE OR REPLACE FUNCTION reduceSomeTicketPricesFunction(maxTicketCount INTEGER
         FETCH orderedTickets INTO tID, date, st, code, seat, cID, price;
         EXIT WHEN NOT FOUND;
 
+        -- Check priceCodes and update accordingly
         IF (code = 'A' AND price IS NOT NULL) THEN
             UPDATE Tickets
             SET ticketPrice = ticketPrice - 3
