@@ -55,7 +55,6 @@ public class RunMovieTheaterApplication
 
 			// -----------------------------------------------------------------------------------------
 			// Testing updateMovieName
-
 			/* Output of updateMovieName when theMovieID is 101 
 			* and newMovieName is 'Avatar 1'
 			* 1
@@ -84,9 +83,8 @@ public class RunMovieTheaterApplication
 
 			// -----------------------------------------------------------------------------------------
 			// Testing reduceSomeTicketPrices
-
 			/* Output of reduceSomeTicketPrices when maxTicketCount is 15
-			* 15
+			* 43
 			*/
 
 			int countToUpdate1 = 15;
@@ -97,7 +95,7 @@ public class RunMovieTheaterApplication
 
 			/*
 			 * Output of reduceSomeTicketPrices when maxTicketCount is 99
-			 * 37
+			 * 76
 			 */
 
 			int countToUpdate2 = 99;

@@ -3,6 +3,7 @@ CREATE OR REPLACE FUNCTION reduceSomeTicketPricesFunction(maxTicketCount INTEGER
 
     DECLARE
         code CHAR(1);
+        seat INTEGER;
         cID INTEGER;
         price INTEGER;
         tID INTEGER;
@@ -12,7 +13,7 @@ CREATE OR REPLACE FUNCTION reduceSomeTicketPricesFunction(maxTicketCount INTEGER
         loopCount INTEGER;
 
     DECLARE orderedTickets CURSOR FOR
-        SELECT s.theaterID, s.showingDate, s.startTime, s.priceCode, t.customerID, t.ticketPrice
+        SELECT s.theaterID, s.showingDate, s.startTime, s.priceCode, t.seatNum, t.customerID, t.ticketPrice
         FROM Showings s
         JOIN Tickets t ON s.theaterID = t.theaterID
         AND s.showingDate = t.showingDate
@@ -24,7 +25,7 @@ CREATE OR REPLACE FUNCTION reduceSomeTicketPricesFunction(maxTicketCount INTEGER
         totalUpdates := 0;
         loopCount := 0;    
     LOOP
-        FETCH orderedTickets INTO tID, date, st, code, cID, price;
+        FETCH orderedTickets INTO tID, date, st, code, seat, cID, price;
         EXIT WHEN NOT FOUND;
 
         IF (code = 'A' AND price IS NOT NULL) THEN
@@ -35,6 +36,7 @@ CREATE OR REPLACE FUNCTION reduceSomeTicketPricesFunction(maxTicketCount INTEGER
             AND Tickets.customerID = cID
             AND Tickets.ticketPrice IS NOT NULL
             AND Tickets.theaterID = tID
+            AND Tickets.seatNum = seat
             AND Tickets.showingDate = date
             AND Tickets.startTime = st;
             totalUpdates := totalUpdates + 3;
@@ -48,6 +50,7 @@ CREATE OR REPLACE FUNCTION reduceSomeTicketPricesFunction(maxTicketCount INTEGER
             AND Tickets.customerID = cID
             AND Tickets.ticketPrice IS NOT NULL
             AND Tickets.theaterID = tID
+            AND Tickets.seatNum = seat
             AND Tickets.showingDate = date
             AND Tickets.startTime = st;
             totalUpdates := totalUpdates + 2;
@@ -61,6 +64,7 @@ CREATE OR REPLACE FUNCTION reduceSomeTicketPricesFunction(maxTicketCount INTEGER
             AND Tickets.customerID = cID
             AND Tickets.ticketPrice IS NOT NULL
             AND Tickets.theaterID = tID
+            AND Tickets.seatNum = seat
             AND Tickets.showingDate = date
             AND Tickets.startTime = st;
             totalUpdates := totalUpdates + 1;
