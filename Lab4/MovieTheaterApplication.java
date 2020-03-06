@@ -78,7 +78,6 @@ public class MovieTheaterApplication {
         return result;
     }
 
-
     /**
      * updateMovieName method has two arguments, an integer argument theMovieID, and a string
      * argument, newMovieName.  For the tuple in the Movies table (if any) whose movieID equals
