@@ -47,7 +47,7 @@ public class RunMovieTheaterApplication
 			*/
 
 			String code = "'B'";
-			System.out.println("Output of getShowingsCount when the parameter thePriceCode is " + 
+			System.out.println("Output of getShowingsCount\nwhen the parameter thePriceCode is " + 
 								code + ".");
 
 			int showingCount = app.getShowingsCount(code);
@@ -64,7 +64,7 @@ public class RunMovieTheaterApplication
 			int id1 = 101;
 			String newName1 = "'Avatar 1'";
 			System.out.println("Output of updateMovieName when theMovieID is " + id1 + 
-								" and newMovieName is " + newName1);
+								"\nand newMovieName is " + newName1);
 
 			int nameCount1 = app.updateMovieName(id1, newName1);
 			System.out.println(nameCount1);
@@ -77,18 +77,34 @@ public class RunMovieTheaterApplication
 			int id2 = 888;
 			String newName2 = "'Star Wars: A New Hope'";
 			System.out.println("Output of updateMovieName when theMovieID is " + id2 + 
-								" and newMovieName is " + newName2);
+								"\nand newMovieName is " + newName2);
 
 			int nameCount2 = app.updateMovieName(id2, newName2);
 			System.out.println(nameCount2);
 
 			// -----------------------------------------------------------------------------------------
 			// Testing reduceSomeTicketPrices
-			int countToUpdate = 15;
-			System.out.println("Output of reduceSomeTicketPrices when maxTicketCount is " + countToUpdate);
+
+			/* Output of reduceSomeTicketPrices when maxTicketCount is 15
+			* 15
+			*/
+
+			int countToUpdate1 = 15;
+			System.out.println("Output of reduceSomeTicketPrices when maxTicketCount is " + countToUpdate1);
 			
-			int totalUpdates = app.reduceSomeTicketPrices(countToUpdate);
-			System.out.println(totalUpdates);
+			int totalUpdates1 = app.reduceSomeTicketPrices(countToUpdate1);
+			System.out.println(totalUpdates1);
+
+			/*
+			 * Output of reduceSomeTicketPrices when maxTicketCount is 99
+			 * 37
+			 */
+
+			int countToUpdate2 = 99;
+			System.out.println("Output of reduceSomeTicketPrices when maxTicketCount is " + countToUpdate2);
+
+			int totalUpdates2 = app.reduceSomeTicketPrices(countToUpdate2);
+			System.out.println(totalUpdates2);
 
             /*******************
             * Your code ends here */

@@ -4,4 +4,4 @@ CREATE VIEW showTickets AS
     JOIN Tickets t ON s.theaterID = t.theaterID
     AND s.showingDate = t.showingDate
     AND s.startTime = t.startTime
-    ORDER BY s.priceCode ASC, t.customerID ASC;
+    ORDER BY s.priceCode ASC, t.customerID ASC, s.theaterID ASC, s.showingDate ASC, s.startTime ASC;
